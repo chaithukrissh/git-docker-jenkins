@@ -1,5 +1,11 @@
 pipeline{
     agent any
+
+    
+
+
+    booleanParam(name:'check',defaultValue:true, description:"this is for check purpose")
+
     stages{
         stage("A"){
             steps{
@@ -27,6 +33,14 @@ pipeline{
         }
 
         stage("docker"){
+
+            when{
+                expression{
+                    params.check
+                }
+            }
+
+
             steps{
                 withCredentials([usernamePassword(credentialsId:'docker-repo',usernameVariable:'user',passwordVariable:'pass')]){
 
