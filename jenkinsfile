@@ -1,0 +1,40 @@
+pipeline{
+    stages{
+        stage("A"){
+            steps{
+                echo "this is printing A"
+            }
+
+            post{
+                always{
+
+                    echo "completed successfully"
+
+                }
+
+                success{
+
+                    echo "this will print when it is success"
+
+                }
+                failure{
+
+                    echo "this will print when it is failure"
+
+                }
+            }
+        }
+    }
+
+    post{
+        always{
+            echo "====++++always++++===="
+        }
+        success{
+            echo "====++++only when successful++++===="
+        }
+        failure{
+            echo "====++++only when failed++++===="
+        }
+    }
+}
