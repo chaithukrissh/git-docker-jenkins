@@ -2,9 +2,11 @@ pipeline{
     agent any
 
     
-
+    parameters{
 
     booleanParam(name:'check',defaultValue:true, description:"this is for check purpose")
+    
+    }
 
     stages{
         stage("A"){
