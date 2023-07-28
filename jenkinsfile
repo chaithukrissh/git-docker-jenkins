@@ -1,5 +1,5 @@
 pipeline{
-    agent any means any and aslo any
+    agent any 
     stages{
         stage("A"){
             steps{
